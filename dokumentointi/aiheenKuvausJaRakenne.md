@@ -1,1 +1,1 @@
-DNA sekvenssin analysointityökalu
+DNA-sekvenssin analysointityÃ¶kalu
