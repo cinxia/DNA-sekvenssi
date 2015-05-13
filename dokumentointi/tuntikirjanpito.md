@@ -6,3 +6,7 @@ Gitin opettelua 2,5 h
 
 Ti 12.5.
 Neatbeansin projektin luominen, Gitin opettelua, aiheen kuvauksen kirjoittaminen 2 h
+Luokkien ja metodien suunnittelua 1 h
+
+Ke 13.5.
+Aiheen kuvauksen päivittäminen, luokan DnaSekvenssi kirjoittaminen
