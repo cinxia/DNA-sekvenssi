@@ -9,4 +9,4 @@ Neatbeansin projektin luominen, Gitin opettelua, aiheen kuvauksen kirjoittaminen
 Luokkien ja metodien suunnittelua 1 h
 
 Ke 13.5.
-Aiheen kuvauksen päivittäminen, luokan DnaSekvenssi kirjoittaminen
+Aiheen kuvauksen päivittäminen, luokan DnaSekvenssi kirjoittaminen 1,5 h
