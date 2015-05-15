@@ -10,3 +10,6 @@ Luokkien ja metodien suunnittelua 1 h
 
 Ke 13.5.
 Aiheen kuvauksen päivittäminen, luokan DnaSekvenssi kirjoittaminen 1,5 h
+
+Pe 15.5.
+Luokan DnaSekvenssi muokkaaminen ja sen testaamista 2 h
