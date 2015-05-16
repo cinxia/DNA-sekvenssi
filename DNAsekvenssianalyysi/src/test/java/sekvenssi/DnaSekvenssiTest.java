@@ -52,29 +52,72 @@ public class DnaSekvenssiTest {
     }
 
     @Test
-    public void laskeEmasfrekvenssiToimiiKunPositiivinen() {
+    public void laskeEmasfrekvenssiToimiiKunFrekvenssiPositiivinen() {
         assertEquals(2, ketjuIsoilla.getFrekvenssiA());
     }
-    
+
     @Test
-    public void laskeEmasFrekvenssiToimiiKunNolla(){
+    public void laskeEmasFrekvenssiToimiiKunFrekvenssiNolla() {
         assertEquals(0, ketjuPienilla.getFrekvenssiG());
     }
-    
+
     @Test
-    public void laskeEmasFrekvenssiKunSekvenssiOnTyhja(){
+    public void laskeEmasFrekvenssiKunSekvenssiOnTyhja() {
         assertEquals(0, ketjuTyhja.getFrekvenssiT());
     }
-    
+
     @Test
-    public void laskeSekvenssinPituusToimii(){
+    public void laskeSekvenssinPituusToimii() {
         assertEquals(6, ketjuIsoilla.laskeSekvenssinPituus());
     }
-    
+
     @Test
-    public void laskeSekvenssinPituusKunSeOnNolla(){
+    public void laskeSekvenssinPituusKunSeOnNolla() {
         assertEquals(0, ketjuTyhja.laskeSekvenssinPituus());
     }
+
+    @Test
+    public void laskeGCOsuusToimiiKunMolempia() {
+        assertEquals(0.33, ketjuIsoilla.laskeGCOsuus(), 0.01);
+    }
+
+    @Test
+    public void laskeGCOsuusToimiiKunToinenPuuttuu() {
+        assertEquals(0.4, ketjuPienilla.laskeGCOsuus(), 0.01);
+    }
+
+    @Test
+    public void laskeGCOsuusToimiiKunSekvenssinPituusOnNolla() {
+        assertEquals(0, ketjuTyhja.laskeGCOsuus(), 0.01);
+    }
+
+    @Test
+    public void laskePyrimidiiniPuriinisuhdeToimii(){
+        assertEquals("3:3", ketjuIsoilla.laskePyrimidiiniPuriiniSuhde());
+    }
     
+    @Test
+    public void laskePyrimidiiniPuriinisuhdeToimiiKunSekvenssinPituusOnNolla(){
+        assertEquals("0:0", ketjuTyhja.laskePyrimidiiniPuriiniSuhde());
+    }
     
+    @Test
+    public void muunnaVastinjuosteeksiToimii(){
+        assertEquals("TTAAGC", ketjuIsoilla.muunnaVastinjuosteeksi());
+    }
+    
+    @Test
+    public void muunnaVastinjuosteeksiToimiiKunSekvenssinPituusOnNolla(){
+        assertEquals("", ketjuTyhja.muunnaVastinjuosteeksi());
+    }
+    
+    @Test
+    public void muunnaLahettiRnaksiToimii(){
+        assertEquals("UUAAGC", ketjuIsoilla.muunnaLahettiRnaksi());
+    }
+    
+    @Test
+    public void muunnaLahettiRnaksiToimiiKunSekvenssinPituusOnNolla(){
+        assertEquals("", ketjuTyhja.muunnaLahettiRnaksi());
+    }
 }

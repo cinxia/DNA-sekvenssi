@@ -1,4 +1,3 @@
-
 package sekvenssi;
 
 public class DnaSekvenssi {
@@ -17,14 +16,14 @@ public class DnaSekvenssi {
             frekvenssiT = laskeEmasFrekvenssi('T', DnaSekvenssi);
             frekvenssiC = laskeEmasFrekvenssi('C', DnaSekvenssi);
             frekvenssiG = laskeEmasFrekvenssi('G', DnaSekvenssi);
-        } 
-        
+        }
+
     }
 
     public boolean onkoDnaSekvenssi(String syoteSekvenssi) {
 
         String sekvenssi = syoteSekvenssi.toUpperCase();
-        if (syoteSekvenssi.length() == 0){
+        if (syoteSekvenssi.length() == 0) {
             return false;
         }
         for (int i = 0; i < sekvenssi.length(); i++) {
@@ -71,31 +70,60 @@ public class DnaSekvenssi {
         return this.DnaSekvenssi.length();
     }
 
-    public double laskeGCOsuus(String sekvenssi) {
-        return (1.0 * this.frekvenssiG + this.frekvenssiC) / this.DnaSekvenssi.length()*100;
+    public double laskeGCOsuus() {
+        if (this.DnaSekvenssi.length() == 0) {
+            return 0;
+        } else {
+            return (1.0 * this.frekvenssiG + this.frekvenssiC) / this.DnaSekvenssi.length();
+        }
     }
-    
-    public String laskePyrimidiiniPuriiniSuhde(){
-        return (frekvenssiC+frekvenssiT) + ":" + (frekvenssiA+frekvenssiG);
+
+    public String laskePyrimidiiniPuriiniSuhde() {
+        return (frekvenssiC + frekvenssiT) + ":" + (frekvenssiA + frekvenssiG);
     }
-    
-    public String muunnaVastinjuosteeksi(){
-        String vastinjuoste = this.DnaSekvenssi.replace("A", "T");
-        vastinjuoste = vastinjuoste.replace("T", "A");
-        vastinjuoste = vastinjuoste.replace("C", "G");
-        vastinjuoste = vastinjuoste.replace("G", "C");
-        
+
+    public String muunnaVastinjuosteeksi() {
+        String vastinjuoste = "";
+
+        for (int i = 0; i < this.DnaSekvenssi.length(); i++) {
+            switch (this.DnaSekvenssi.charAt(i)) {
+                case 'A':
+                    vastinjuoste = vastinjuoste + "T";
+                    break;
+                case 'T':
+                    vastinjuoste = vastinjuoste + "A";
+                    break;
+                case 'C':
+                    vastinjuoste = vastinjuoste + "G";
+                    break;
+                case 'G':
+                    vastinjuoste = vastinjuoste + "C";
+            }
+        }
+
         return vastinjuoste;
     }
-    
-    public String muunnaLahettiRnaksi(){
-        String lahettiRna = this.DnaSekvenssi.replace("A", "U");
-        lahettiRna = lahettiRna.replace("T", "A");
-        lahettiRna = lahettiRna.replace("C", "G");
-        lahettiRna = lahettiRna.replace("G", "C");
-        
+
+    public String muunnaLahettiRnaksi() {
+        String lahettiRna = "";
+
+        for (int i = 0; i < this.DnaSekvenssi.length(); i++) {
+            switch (this.DnaSekvenssi.charAt(i)) {
+                case 'A':
+                    lahettiRna = lahettiRna + "U";
+                    break;
+                case 'T':
+                    lahettiRna = lahettiRna + "A";
+                    break;
+                case 'C':
+                    lahettiRna = lahettiRna + "G";
+                    break;
+                case 'G':
+                    lahettiRna = lahettiRna + "C";
+            }
+        }
+
         return lahettiRna;
     }
-    
-}
 
+}
