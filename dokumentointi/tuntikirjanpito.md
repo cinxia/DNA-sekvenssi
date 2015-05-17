@@ -15,3 +15,6 @@ Luokan DnaSekvenssi muokkaaminen ja sen testaamista 2 h
 
 La 16.5.
 Luokan DnaSekvenssi korjaaminen ja sen testaus 1,5 h, suunnittelua 1 h
+
+Su 17.5.
+Luokan aminohappomuunnin lis‰‰minen 2 h
