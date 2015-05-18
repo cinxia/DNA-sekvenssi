@@ -9,16 +9,16 @@ public class Aminohappomuunnin {
     private HashMap aminohappoavain = new HashMap<String, String>();
 
     public Aminohappomuunnin(String syoteRna) {
-        if (onkoRna(syoteRna)){
-        this.lahettiRna = tarkistaRnanJaollisuus(syoteRna);
-        this.lahettiRna = this.lahettiRna.toUpperCase();
-        taytaAminohappoavain();
+        if (onkoRna(syoteRna)) {
+            this.lahettiRna = tarkistaRnanJaollisuus(syoteRna);
+            this.lahettiRna = this.lahettiRna.toUpperCase();
+            taytaAminohappoavain();
         }
     }
-    
+
     public boolean onkoRna(String syoteRna) {
         String sekvenssi = syoteRna.toUpperCase();
-        
+
         for (int i = 0; i < sekvenssi.length(); i++) {
             if (sekvenssi.charAt(i) != 'A' && sekvenssi.charAt(i) != 'U'
                     && sekvenssi.charAt(i) != 'C' && sekvenssi.charAt(i) != 'G') {
@@ -34,19 +34,18 @@ public class Aminohappomuunnin {
         switch (syoteRna.length() % 3) {
             case (0):
                 lahettiRna = syoteRna;
+                this.jaollisuusviesti = "Tasan";
                 break;
             case (1):
                 for (int i = 0; i < syoteRna.length() - 1; i++) {
                     lahettiRna = lahettiRna + syoteRna.charAt(i);
-                    this.jaollisuusviesti = "Lähetti-RNA ei ole kolmella jaollinen. "
-                            + "Viimeinen nukleotidi on jätetty pois analyysistä.";
+                    this.jaollisuusviesti = "Yksi liikaa";
                 }
                 break;
             case (2):
                 for (int i = 0; i < syoteRna.length() - 2; i++) {
                     lahettiRna = lahettiRna + syoteRna.charAt(i);
-                    this.jaollisuusviesti = "Lähetti-RNA ei ole kolmella jaollinen. "
-                            + "Kaksi viimeistä nukleotidia on jätetty pois analyysistä.";
+                    this.jaollisuusviesti = "Kaksi liikaa";
                 }
                 break;
         }
@@ -61,13 +60,13 @@ public class Aminohappomuunnin {
         return this.jaollisuusviesti;
     }
 
-    public String muutaAminohappoketjuksi(String lahettiRna) {
-        String kodoni = "";
+    public String muutaAminohappoketjuksi() {
         String aminohappo = "";
         String aminohappoketju = "";
+        String kodoni = "";
 
-        for (int i = 0; i < lahettiRna.length() - 3; i = i + 3) {
-            kodoni = lahettiRna.substring(i, i + 2);
+        for (int i = 0; i <= this.lahettiRna.length() - 3; i = i + 3) {
+            kodoni = this.lahettiRna.substring(i, i + 3); // substring: lopetuskohta ei tule mukaan
             aminohappo = String.valueOf(aminohappoavain.get(kodoni));
             aminohappoketju = aminohappoketju + aminohappo;
         }
