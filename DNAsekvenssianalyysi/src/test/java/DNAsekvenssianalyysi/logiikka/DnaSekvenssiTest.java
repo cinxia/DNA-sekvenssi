@@ -1,4 +1,4 @@
-package sekvenssi;
+package DNAsekvenssianalyysi.logiikka;
 
 import org.junit.After;
 import org.junit.AfterClass;

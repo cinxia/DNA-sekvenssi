@@ -1,4 +1,4 @@
-package sekvenssi;
+package DNAsekvenssianalyysi.logiikka;
 
 public class DnaSekvenssi {
 
