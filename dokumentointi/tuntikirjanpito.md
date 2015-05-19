@@ -21,3 +21,6 @@ Luokan aminohappomuunnin lisääminen 2 h
 
 Ma 18.5.
 Luokan Aminohappomuunnin korjaaminen ja testaaminen 1,5 h
+
+Ti 19.5.
+Pakkausrakenteen muuttaminen 1 h
