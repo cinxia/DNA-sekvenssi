@@ -24,3 +24,6 @@ Luokan Aminohappomuunnin korjaaminen ja testaaminen 1,5 h
 
 Ti 19.5.
 Pakkausrakenteen muuttaminen 1 h
+
+Ke 20.5.
+Tiedostorakenneongelman selvittelyä, pit-raportti 1,5 h
