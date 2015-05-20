@@ -1,3 +1,4 @@
+
 package DNAsekvenssianalyysi.logiikka;
 
 import org.junit.After;
@@ -7,10 +8,12 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class DnaSekvenssiTest {
 
+public class DnaSekvenssiTest {
+    
     public DnaSekvenssiTest() {
     }
+    
     static DnaSekvenssi ketjuIsoilla;
     static DnaSekvenssi ketjuTyhja;
     static DnaSekvenssi ketjuNumero;

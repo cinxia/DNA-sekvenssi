@@ -1,9 +1,10 @@
+
 package DNAsekvenssianalyysi.logiikka;
 
 import java.util.*;
 
 public class Aminohappomuunnin {
-
+    
     private String lahettiRna = "";
     private String jaollisuusviesti = "";
     private HashMap aminohappoavain = new HashMap<String, String>();
@@ -74,71 +75,71 @@ public class Aminohappomuunnin {
     }
 
     private void taytaAminohappoavain() {
-        aminohappoavain.put("UUU", "Phe");
-        aminohappoavain.put("UUC", "Phe");
-        aminohappoavain.put("UUA", "Leu");
-        aminohappoavain.put("UUG", "Leu");
-        aminohappoavain.put("CUU", "Leu");
-        aminohappoavain.put("CUC", "Leu");
-        aminohappoavain.put("CUA", "Leu");
-        aminohappoavain.put("CUG", "Leu");
-        aminohappoavain.put("AUU", "Ile");
-        aminohappoavain.put("AUC", "Ile");
-        aminohappoavain.put("AUA", "Ile");
-        aminohappoavain.put("AUG", "Met");
-        aminohappoavain.put("GUU", "Val");
-        aminohappoavain.put("GUC", "Val");
-        aminohappoavain.put("GUA", "Val");
-        aminohappoavain.put("GUG", "Val");
-        aminohappoavain.put("UCU", "Ser");
-        aminohappoavain.put("UCC", "Ser");
-        aminohappoavain.put("UCA", "Ser");
-        aminohappoavain.put("UCG", "Ser");
-        aminohappoavain.put("CCU", "Pro");
-        aminohappoavain.put("CCC", "Pro");
-        aminohappoavain.put("CCA", "Pro");
-        aminohappoavain.put("CCG", "Pro");
-        aminohappoavain.put("ACU", "Thr");
-        aminohappoavain.put("ACC", "Thr");
-        aminohappoavain.put("ACA", "Thr");
-        aminohappoavain.put("ACG", "Thr");
-        aminohappoavain.put("GCU", "Ala");
-        aminohappoavain.put("GCC", "Ala");
-        aminohappoavain.put("GCA", "Ala");
-        aminohappoavain.put("GCG", "Ala");
-        aminohappoavain.put("UAU", "Tyr");
-        aminohappoavain.put("UAC", "Tyr");
+        aminohappoavain.put("UUU", "F");
+        aminohappoavain.put("UUC", "F");
+        aminohappoavain.put("UUA", "L");
+        aminohappoavain.put("UUG", "L");
+        aminohappoavain.put("CUU", "L");
+        aminohappoavain.put("CUC", "L");
+        aminohappoavain.put("CUA", "L");
+        aminohappoavain.put("CUG", "L");
+        aminohappoavain.put("AUU", "I");
+        aminohappoavain.put("AUC", "I");
+        aminohappoavain.put("AUA", "I");
+        aminohappoavain.put("AUG", "M");
+        aminohappoavain.put("GUU", "V");
+        aminohappoavain.put("GUC", "V");
+        aminohappoavain.put("GUA", "V");
+        aminohappoavain.put("GUG", "V");
+        aminohappoavain.put("UCU", "S");
+        aminohappoavain.put("UCC", "S");
+        aminohappoavain.put("UCA", "S");
+        aminohappoavain.put("UCG", "S");
+        aminohappoavain.put("CCU", "P");
+        aminohappoavain.put("CCC", "P");
+        aminohappoavain.put("CCA", "P");
+        aminohappoavain.put("CCG", "P");
+        aminohappoavain.put("ACU", "T");
+        aminohappoavain.put("ACC", "T");
+        aminohappoavain.put("ACA", "T");
+        aminohappoavain.put("ACG", "T");
+        aminohappoavain.put("GCU", "A");
+        aminohappoavain.put("GCC", "A");
+        aminohappoavain.put("GCA", "A");
+        aminohappoavain.put("GCG", "A");
+        aminohappoavain.put("UAU", "Y");
+        aminohappoavain.put("UAC", "Y");
         aminohappoavain.put("UAA", ""); // lopetuskodoni, ei aminohappoa
         aminohappoavain.put("UAG", ""); // lopetuskodoni, ei aminohappoa
-        aminohappoavain.put("CAU", "His");
-        aminohappoavain.put("CAC", "His");
-        aminohappoavain.put("CAA", "Gln");
-        aminohappoavain.put("CAG", "Gln");
-        aminohappoavain.put("AAU", "Asn");
-        aminohappoavain.put("AAC", "Asn");
-        aminohappoavain.put("AAA", "Lys");
-        aminohappoavain.put("AAG", "Lys");
-        aminohappoavain.put("GAU", "Asp");
-        aminohappoavain.put("GAC", "Asp");
-        aminohappoavain.put("GAA", "Glu");
-        aminohappoavain.put("GAG", "Glu");
-        aminohappoavain.put("UGU", "Cys");
-        aminohappoavain.put("UGC", "Cys");
+        aminohappoavain.put("CAU", "H");
+        aminohappoavain.put("CAC", "H");
+        aminohappoavain.put("CAA", "Q");
+        aminohappoavain.put("CAG", "Q");
+        aminohappoavain.put("AAU", "N");
+        aminohappoavain.put("AAC", "N");
+        aminohappoavain.put("AAA", "K");
+        aminohappoavain.put("AAG", "K");
+        aminohappoavain.put("GAU", "D");
+        aminohappoavain.put("GAC", "D");
+        aminohappoavain.put("GAA", "E");
+        aminohappoavain.put("GAG", "E");
+        aminohappoavain.put("UGU", "C");
+        aminohappoavain.put("UGC", "C");
         aminohappoavain.put("UGA", ""); // lopetuskodoni, ei aminohappoa
-        aminohappoavain.put("UGG", "Trp");
-        aminohappoavain.put("CGU", "Arg");
-        aminohappoavain.put("CGC", "Arg");
-        aminohappoavain.put("CGA", "Arg");
-        aminohappoavain.put("CGG", "Arg");
-        aminohappoavain.put("AGU", "Ser");
-        aminohappoavain.put("AGC", "Ser");
-        aminohappoavain.put("AGA", "Arg");
-        aminohappoavain.put("AGG", "Arg");
-        aminohappoavain.put("AGG", "Arg");
-        aminohappoavain.put("GGU", "Gly");
-        aminohappoavain.put("GGC", "Gly");
-        aminohappoavain.put("GGA", "Gly");
-        aminohappoavain.put("GGG", "Gly");
+        aminohappoavain.put("UGG", "W");
+        aminohappoavain.put("CGU", "R");
+        aminohappoavain.put("CGC", "R");
+        aminohappoavain.put("CGA", "R");
+        aminohappoavain.put("CGG", "R");
+        aminohappoavain.put("AGU", "S");
+        aminohappoavain.put("AGC", "S");
+        aminohappoavain.put("AGA", "R");
+        aminohappoavain.put("AGG", "R");
+        aminohappoavain.put("AGG", "R");
+        aminohappoavain.put("GGU", "G");
+        aminohappoavain.put("GGC", "G");
+        aminohappoavain.put("GGA", "G");
+        aminohappoavain.put("GGG", "G");
 
     }
 }

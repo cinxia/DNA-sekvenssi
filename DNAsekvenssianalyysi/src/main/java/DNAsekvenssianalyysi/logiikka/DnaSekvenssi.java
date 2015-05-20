@@ -1,7 +1,9 @@
+
 package DNAsekvenssianalyysi.logiikka;
 
-public class DnaSekvenssi {
 
+public class DnaSekvenssi {
+    
     private String DnaSekvenssi = "";
     private int frekvenssiA = 0;
     private int frekvenssiT = 0;
@@ -125,5 +127,4 @@ public class DnaSekvenssi {
 
         return lahettiRna;
     }
-
 }

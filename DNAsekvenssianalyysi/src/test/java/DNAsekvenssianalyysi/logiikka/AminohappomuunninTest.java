@@ -71,6 +71,6 @@ public class AminohappomuunninTest {
 
     @Test
     public void MuutaAminohappoketjuksiToimii() {
-        assertEquals("LysTyrGly", lahettiRnaIsoillaTasan.muutaAminohappoketjuksi());
+        assertEquals("KYG", lahettiRnaIsoillaTasan.muutaAminohappoketjuksi());
     }
 }
