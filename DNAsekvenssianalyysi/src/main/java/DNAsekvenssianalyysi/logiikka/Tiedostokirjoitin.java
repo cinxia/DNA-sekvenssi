@@ -27,7 +27,7 @@ public class Tiedostokirjoitin {
 
     public boolean kirjoitaSyoteSekvenssi(String sekvenssi) {
         try {
-            this.kirjoitin.append("Syötetty DNA-sekvenssi:");
+            this.kirjoitin.append("Syötetty DNA-sekvenssi:\n");
             this.kirjoitin.append(sekvenssi);
         } catch (Exception e) {
             return false;
@@ -37,7 +37,7 @@ public class Tiedostokirjoitin {
     
     public boolean kirjoitaSekvenssinPituus(int pituus){
         try{
-            this.kirjoitin.append(""+ pituus);
+            this.kirjoitin.append("DNA-sekvenssin pituus: "+ pituus);
         }
         catch(Exception e){
             return false;
@@ -48,7 +48,7 @@ public class Tiedostokirjoitin {
     public boolean kirjoitaEmasFrekvenssit(int frekvenssiA, int frekvenssiT,
             int frekvenssiC, int frekvenssiG){
         try{
-            this.kirjoitin.append("");
+            this.kirjoitin.append("Emäsfrekvenssit:\n");
             this.kirjoitin.append("A: "+ frekvenssiA);
             this.kirjoitin.append("T: " + frekvenssiT);
             this.kirjoitin.append("C: " + frekvenssiC);
@@ -83,7 +83,7 @@ public class Tiedostokirjoitin {
     
     public boolean kirjoitaVastinjuoste(String vastinjuoste){
         try{
-            this.kirjoitin.append("");
+            this.kirjoitin.append("Syötetyn DNA-sekvenssin vastinjuoste:\n");
             this.kirjoitin.append(vastinjuoste);
         }
         catch(Exception e){
@@ -94,7 +94,7 @@ public class Tiedostokirjoitin {
     
     public boolean kirjoitaLahettiRna(String lahettiRna){
         try{
-            this.kirjoitin.append("");
+            this.kirjoitin.append("Syötettyä DNA-sekvenssiä vastaava lähetti-RNA\n");
         }
         catch(Exception e){
             return false;
@@ -106,13 +106,16 @@ public class Tiedostokirjoitin {
         try{
             switch(viesti){
                 case("Tasan"):
-                    this.kirjoitin.append("");
+                    this.kirjoitin.append("Lähetti-RNA on kolmella jaollinen. "
+                            + "Kaikki emäkset on muutettu aminohapoiksi.");
                     break;
                 case("Yksi liikaa"):
-                    this.kirjoitin.append("");
+                    this.kirjoitin.append("Lähetti-RNA ei ole kolmella jaollinen. "
+                            + "Viimeinen emäs on jätetty pois.");
                     break;
                 case("Kaksi liikaa"):
-                    this.kirjoitin.append("");
+                    this.kirjoitin.append("Lähetti-RNA ei ole kolmella jaollinen. "
+                            + "Kaksi viimeistä emästä on jätetty pois.");
                     break;
             }}
             catch(Exception e){
@@ -123,7 +126,7 @@ public class Tiedostokirjoitin {
     
     public boolean kirjoitaAminohappoketju(String ketju){
         try{
-            this.kirjoitin.append("");
+            this.kirjoitin.append("Lähetti-RNA:ta vastaava aminohappoketju:\n");
             this.kirjoitin.append(ketju);
         }
         catch(Exception e){
