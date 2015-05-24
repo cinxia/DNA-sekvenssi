@@ -27,7 +27,7 @@ public class Tiedostokirjoitin {
 
     public boolean kirjoitaSyoteSekvenssi(String sekvenssi) {
         try {
-            this.kirjoitin.append("");
+            this.kirjoitin.append("Syötetty DNA-sekvenssi:");
             this.kirjoitin.append(sekvenssi);
         } catch (Exception e) {
             return false;
