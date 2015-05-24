@@ -30,3 +30,6 @@ Tiedostorakenneongelman selvittelyä, pit-raportti 1,5 h
 
 La 23.5.
 Luokan Tiedostokirjoitin suunnittelua ja kirjoittamista 1,5 h
+
+Su 24.5.
+Tiedostokirjoitin-luokan ja sen testiluokan kirjoittamista 1 h
