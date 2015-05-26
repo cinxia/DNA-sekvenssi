@@ -89,7 +89,15 @@ public class TiedostokirjoitinTest {
     @Test
     public void kokoOperaatiotoimii(){
         Tiedostokirjoitin kakkoskirjoitin = new Tiedostokirjoitin("F:\\testiraporttitoinen.txt");
-        kakkoskirjoitin.kirjoitaSyoteSekvenssi("ATCG");
+        kakkoskirjoitin.kirjoitaSyoteSekvenssi("ATCGG");
+        kakkoskirjoitin.kirjoitaSekvenssinPituus(5);
+        kakkoskirjoitin.kirjoitaEmasFrekvenssit(1, 1, 1, 2);
+        kakkoskirjoitin.kirjoitaGCOsuus(0.45);
+        kakkoskirjoitin.kirjoitaPyrimidiiniPuriiniSuhde("3:4");
+        kakkoskirjoitin.kirjoitaVastinjuoste("TAAACCG");
+        kakkoskirjoitin.kirjoitaLahettiRna("AAUGC");
+        kakkoskirjoitin.kirjoitaJaollisuusviesti("Kaksi liikaa");
+        kakkoskirjoitin.kirjoitaAminohappoketju("MTL");
         kakkoskirjoitin.suljeTiedosto();
     }
     
