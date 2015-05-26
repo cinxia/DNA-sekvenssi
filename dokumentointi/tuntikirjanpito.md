@@ -33,3 +33,6 @@ Luokan Tiedostokirjoitin suunnittelua ja kirjoittamista 1,5 h
 
 Su 24.5.
 Tiedostokirjoitin-luokan ja sen testiluokan kirjoittamista 1 h
+
+Ti 26.5.
+Tiedostokirjoittimen ja sen testiluokan muokkaamista 2 h
