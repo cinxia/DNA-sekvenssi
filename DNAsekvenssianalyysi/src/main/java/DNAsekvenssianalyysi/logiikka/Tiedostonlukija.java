@@ -6,7 +6,7 @@ import java.io.*;
 public class Tiedostonlukija {
 
     private String sekvenssi;
-    private boolean tiedostoOk;
+    private boolean tiedostoOk = true;
     private Scanner lukija;
 
     public Tiedostonlukija(String tiedosto) {
@@ -16,15 +16,20 @@ public class Tiedostonlukija {
         } catch (Exception e) {
             this.tiedostoOk = false;
         }
-        this.tiedostoOk = true;
     }
 
     public String lueTiedosto() {
         String luettuSekvenssi = "";
-        while (lukija.hasNextLine()) {
-            luettuSekvenssi = luettuSekvenssi + lukija.nextLine();
+        try {
+            while (lukija.hasNextLine()) {
+                luettuSekvenssi = luettuSekvenssi + lukija.nextLine();
+            }
+            lukija.close();
+            return luettuSekvenssi;
+        } catch (Exception e) {
+            this.tiedostoOk = false;
         }
-        return luettuSekvenssi;
+        return "";
     }
 
     public String getSekvenssi() {
@@ -33,15 +38,6 @@ public class Tiedostonlukija {
 
     public boolean getTiedostoOk() {
         return this.tiedostoOk;
-    }
-
-    public boolean suljeTiedosto() {
-        try {
-            lukija.close();
-        } catch (Exception e) {
-            return false;
-        }
-        return true;
     }
 
 }

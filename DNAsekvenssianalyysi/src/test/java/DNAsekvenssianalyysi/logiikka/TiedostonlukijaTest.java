@@ -25,14 +25,8 @@ public class TiedostonlukijaTest {
     }
 
     @Test
-    public void suljeTiedostoToimii() {
-        assertTrue(testilukija.suljeTiedosto());
-    }
-
-    @Test
     public void kokoOperaatioToimii() {
         Tiedostonlukija toinenTestilukija = new Tiedostonlukija("F:\\testisekvenssi.txt");
-        toinenTestilukija.suljeTiedosto();
         System.out.println(toinenTestilukija.getSekvenssi());
     }
 
