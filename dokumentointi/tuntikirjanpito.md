@@ -41,4 +41,4 @@ To 28.5.
 Koodikatselmointia 1 h
 
 Su 31.5.
-Tiedostonlukijan ja sen testiluokan kirjoittaminen, ohjausolion suunnittelu 2,5 h; sekvenssikaavioiden piirtäminen 1 h
+Tiedostonlukijan ja sen testiluokan kirjoittaminen, ohjausolion suunnittelu 2,5 h; sekvenssikaavioiden piirtäminen 1 h; ohjausolion ja sen testien kirjoittaminen 2 h
