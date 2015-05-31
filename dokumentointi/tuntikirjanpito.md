@@ -5,7 +5,7 @@ Ma 11.5.
 Gitin opettelua 2,5 h
 
 Ti 12.5.
-Neatbeansin projektin luominen, Gitin opettelua, aiheen kuvauksen kirjoittaminen 2 h, luokkien ja metodien suunnittelua 1 h
+Neatbeansin projektin luominen, Gitin opettelua, aiheen kuvauksen kirjoittaminen 2 h; luokkien ja metodien suunnittelua 1 h
 
 Ke 13.5.
 Aiheen kuvauksen päivittäminen, luokan DnaSekvenssi kirjoittaminen 1,5 h
@@ -36,3 +36,9 @@ Tiedostokirjoitin-luokan ja sen testiluokan kirjoittamista 1 h
 
 Ti 26.5.
 Tiedostokirjoittimen ja sen testiluokan muokkaamista 2 h
+
+To 28.5.
+Koodikatselmointia 1 h
+
+Su 31.5.
+Tiedostonlukijan ja sen testiluokan kirjoittaminen, ohjausolion suunnittelu 2,5 h
