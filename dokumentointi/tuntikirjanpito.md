@@ -42,3 +42,6 @@ Koodikatselmointia 1 h
 
 Su 31.5.
 Tiedostonlukijan ja sen testiluokan kirjoittaminen, ohjausolion suunnittelu 2,5 h; sekvenssikaavioiden piirtäminen 1 h; ohjausolion ja sen testien kirjoittaminen 2 h
+
+Ti 2.6.
+JavaDocin kirjoittaminen ja uusi pit-raportti 1,5 h
