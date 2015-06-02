@@ -1,4 +1,4 @@
-package DNAsekvenssianalyysi.logiikka;
+package DNAsekvenssianalyysi.logiikka; //testiääkkönen
 
 import java.io.*;
 
