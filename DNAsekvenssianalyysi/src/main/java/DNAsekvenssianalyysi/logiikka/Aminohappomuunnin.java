@@ -17,7 +17,7 @@ public class Aminohappomuunnin {
         }
     }
 
-    public boolean onkoRna(String syoteRna) {
+    private boolean onkoRna(String syoteRna) {
         String sekvenssi = syoteRna.toUpperCase();
 
         for (int i = 0; i < sekvenssi.length(); i++) {

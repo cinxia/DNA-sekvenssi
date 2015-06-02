@@ -22,7 +22,7 @@ public class DnaSekvenssi {
 
     }
 
-    public boolean onkoDnaSekvenssi(String syoteSekvenssi) {
+    private boolean onkoDnaSekvenssi(String syoteSekvenssi) {
 
         String sekvenssi = syoteSekvenssi.toUpperCase();
         if (syoteSekvenssi.length() == 0) {

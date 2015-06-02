@@ -18,7 +18,7 @@ public class Tiedostonlukija {
         }
     }
 
-    public String lueTiedosto() {
+    private String lueTiedosto() {
         String luettuSekvenssi = "";
         try {
             while (lukija.hasNextLine()) {
