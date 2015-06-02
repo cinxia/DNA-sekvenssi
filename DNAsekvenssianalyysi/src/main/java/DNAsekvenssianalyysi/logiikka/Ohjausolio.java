@@ -1,5 +1,8 @@
 package DNAsekvenssianalyysi.logiikka;
 
+/**
+ * Luokka ohjaa tiedoston lukemista ja kirjoittamista sekä DNA-sekvenssin analysointia.
+ */
 public class Ohjausolio {
 
     private DnaSekvenssi dna;
@@ -7,6 +10,13 @@ public class Ohjausolio {
     private boolean tiedostonLukuOk;
     private boolean tiedostonLuontiOk;
 
+    /**
+     * Konstruktori lukee ja tallentaa DNA-sekvenssin.
+     * 
+     * @param syote
+     * @param luettavaTiedosto
+     * @param kirjoitettavaTiedosto 
+     */
     public Ohjausolio(String syote, String luettavaTiedosto, String kirjoitettavaTiedosto) {
 
         if (syote == "") {
@@ -30,6 +40,10 @@ public class Ohjausolio {
         }
     }
 
+    /**
+     * Metodi tarkistaa onko DNA-sekvenssiin tallennettu jotakin.
+     * @return onko tallennettu
+     */
     public boolean dnaSekvenssiKunnossa() {
         if (this.dna.getDnaSekvenssi() == "") {
             return false;
@@ -46,35 +60,76 @@ public class Ohjausolio {
         return this.tiedostonLukuOk;
     }
 
+    /**
+     * Metodi käskee kirjoittamaan tiedostoon syötetyn DNA-sekvenssin.
+     * 
+     * @return onnistuiko
+     */
     public boolean lisaaSyoteSekvenssi() {
         return this.kirjoitin.kirjoitaSyoteSekvenssi(this.dna.getDnaSekvenssi());
     }
 
+    /**
+     * Metodi käskee kirjoittamaan tiedostoon sekvenssin pituuden.
+     * 
+     * @return onnistuiko
+     */
     public boolean lisaaSekvenssinPituus() {
         return this.kirjoitin.kirjoitaSekvenssinPituus(this.dna.laskeSekvenssinPituus());
     }
 
+    /**
+     * Metodi käskee kirjoittamaan tiedostoon emäsfrekvenssit.
+     * 
+     * @return onnistuiko
+     */
     public boolean lisaaEmasFrekvenssit() {
         return this.kirjoitin.kirjoitaEmasFrekvenssit(this.dna.getFrekvenssiA(),
                 this.dna.getFrekvenssiT(), this.dna.getFrekvenssiC(), this.dna.getFrekvenssiG());
     }
 
+    /**
+     * Metodi käskee kirjoittamaan tiedostoon GC-osuuden.
+     * 
+     * @return onnistuiko
+     */
     public boolean lisaaGCOsuus() {
         return this.kirjoitin.kirjoitaGCOsuus(this.dna.laskeGCOsuus());
     }
 
+    /**
+     * Metodi käskee kirjoittamaan tiedostoon pyrimidiini-puriinisuhteen.
+     * 
+     * @return onnistuiko
+     */
     public boolean lisaaPyrimidiiniPuriiniSuhde() {
         return this.kirjoitin.kirjoitaPyrimidiiniPuriiniSuhde(this.dna.laskePyrimidiiniPuriiniSuhde());
     }
 
+    /**
+     * Metodi käskee kirjoittamaan tiedostoon vastinjuosteen.
+     * 
+     * @return onnistuiko
+     */
     public boolean lisaaVastinjuoste() {
         return this.kirjoitin.kirjoitaVastinjuoste(this.dna.muunnaVastinjuosteeksi());
     }
 
+    /**
+     * Metodi käskee kirjoittamaan tiedostoon DNA-sekvenssiä vastaavaan lähetti-RNA:n.
+     * 
+     * @return onnistuiko
+     */
     public boolean lisaaLahettiRna() {
         return this.kirjoitin.kirjoitaLahettiRna(this.dna.muunnaLahettiRnaksi());
     }
 
+    /**
+     * Metodi käskee kirjoittamaan tiedostoon lähetti-RNA:ta vastaavan aminohappoketjun ja 
+     * tiedon lähetti-RNA:n jaollisuudesta.
+     * 
+     * @return onnistuiko
+     */
     public boolean lisaaAminohappoketju() {
         Aminohappomuunnin muunnin = new Aminohappomuunnin(dna.muunnaLahettiRnaksi());
         if (!this.kirjoitin.kirjoitaJaollisuusviesti(muunnin.getJaollisuusviesti())) {
@@ -84,6 +139,11 @@ public class Ohjausolio {
         }
     }
 
+    /**
+     * Metodi sulkee tiedostokirjoittimen.
+     * 
+     * @return onnistuiko
+     */
     public boolean suljeKirjoitin() {
         return this.kirjoitin.suljeTiedosto();
     }

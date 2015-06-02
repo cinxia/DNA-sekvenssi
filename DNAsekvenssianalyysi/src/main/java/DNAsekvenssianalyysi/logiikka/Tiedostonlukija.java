@@ -3,12 +3,20 @@ package DNAsekvenssianalyysi.logiikka;
 import java.util.Scanner;
 import java.io.*;
 
+/**
+ * Luokka lukee DNA-sekvenssin tiedostosta ja tallentaa tiedon lukemisen onnistumisesta.
+ */
 public class Tiedostonlukija {
 
     private String sekvenssi;
     private boolean tiedostoOk = true;
     private Scanner lukija;
 
+    /**
+     * Konstruktori alustaa tiedostonlukijan ja lukee tiedoston sisällön.
+     * 
+     * @param tiedosto 
+     */
     public Tiedostonlukija(String tiedosto) {
         try {
             this.lukija = new Scanner(new File(tiedosto));

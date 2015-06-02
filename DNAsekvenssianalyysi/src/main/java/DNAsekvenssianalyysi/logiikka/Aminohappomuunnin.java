@@ -3,12 +3,24 @@ package DNAsekvenssianalyysi.logiikka;
 
 import java.util.*;
 
+/**
+ * Luokka sisältää yhden lähetti-RNA-sekvenssin ja metodeja sen muuttamiseksi 
+ * aminohappoketjuksi.
+ */
 public class Aminohappomuunnin {
     
     private String lahettiRna = "";
     private String jaollisuusviesti = "";
     private HashMap aminohappoavain = new HashMap<String, String>();
 
+    
+    /**
+     * Konstruktori tallentaa parametrina saamansa RNA-sekvenssin, jos 
+     * se on RNA-sekvenssi. 
+     * Samalla tarkistetaan onko RNA-sekvenssi kolmella jaollinen.
+     * 
+     * @param syoteRna 
+     */
     public Aminohappomuunnin(String syoteRna) {
         if (onkoRna(syoteRna)) {
             this.lahettiRna = tarkistaRnanJaollisuus(syoteRna);
@@ -29,6 +41,16 @@ public class Aminohappomuunnin {
         return true;
     }
 
+    
+    /**
+     * Metodi tarkistaa onko RNA-sekvenssi kolmella jaollinen.
+     * Jos sekvenssi ei ole kolmella jaollinen, 
+     * sekvenssistä jätetään lopusta ylimääräiset emäkset pois.
+     * Metodi palauttaa RNA-sekvenssin, joka on kolmella jaollinen.
+     * 
+     * @param syoteRna
+     * @return RNA-sekvenssi
+     */
     public String tarkistaRnanJaollisuus(String syoteRna) {
         String lahettiRna = "";
 
@@ -61,6 +83,12 @@ public class Aminohappomuunnin {
         return this.jaollisuusviesti;
     }
 
+    /**
+     * Metodi muuttaa lähetti-RNA:n aminohappoketjuksi käyttämällä
+     * aminohappojen yksikirjaimisia lyhenteitä.
+     * 
+     * @return aminohappoketju
+     */
     public String muutaAminohappoketjuksi() {
         String aminohappo = "";
         String aminohappoketju = "";

@@ -1,7 +1,10 @@
 
 package DNAsekvenssianalyysi.logiikka;
 
-
+/**
+ *Luokka sisältää yhden DNA-sekvenssin ja tiedot sen emäsfrekvensseistä sekä
+ * metodeja DNA-sekvenssin analysoimiseen.
+ */
 public class DnaSekvenssi {
     
     private String DnaSekvenssi = "";
@@ -10,6 +13,12 @@ public class DnaSekvenssi {
     private int frekvenssiC = 0;
     private int frekvenssiG = 0;
 
+    /**
+     * Konstruktori tallentaa parametrina annetun DNA-sekvenssin,
+     * jos se on DNA-sekvenssi.
+     * 
+     * @param syoteSekvenssi 
+     */
     public DnaSekvenssi(String syoteSekvenssi) {
 
         if (onkoDnaSekvenssi(syoteSekvenssi)) {
@@ -37,6 +46,14 @@ public class DnaSekvenssi {
         return true;
     }
 
+    /**
+     * Metodilaskee parametriksi annetun emäksen frekvenssin toisena
+     * parametrina annetusta DNA-sekvenssistä.
+     * 
+     * @param emas
+     * @param sekvenssi
+     * @return frekvenssi
+     */
     public int laskeEmasFrekvenssi(char emas, String sekvenssi) {
         int frekvenssilaskuri = 0;
 
@@ -68,10 +85,20 @@ public class DnaSekvenssi {
         return this.frekvenssiG;
     }
 
+    /**
+     * Metodi laskee ja palauttaa DNA-sekvenssin pituuden.
+     *  
+     * @return sekvenssin pituus
+     */
     public int laskeSekvenssinPituus() {
         return this.DnaSekvenssi.length();
     }
 
+    /**
+     * Metodi laskee ja palauttaa G- ja C-nukleotidien osuuden.
+     *  
+     * @return GC-osuus
+     */
     public double laskeGCOsuus() {
         if (this.DnaSekvenssi.length() == 0) {
             return 0;
@@ -80,10 +107,21 @@ public class DnaSekvenssi {
         }
     }
 
+    /**
+     * Metodi laskee ja palauttaa pyrimidiinien (C, T) ja puriinien (A, G) välisen suhdeluvun.
+     * 
+     * @return suhdeluku
+     */
     public String laskePyrimidiiniPuriiniSuhde() {
         return (frekvenssiC + frekvenssiT) + ":" + (frekvenssiA + frekvenssiG);
     }
 
+    /**
+     * Metodi muuttaa DNA-sekvenssin vastinjuosteensa mukaiseksi DNA-sekvenssiksi ja 
+     * palauttaa uuden sekvenssin.
+     * 
+     * @return vastinjuoste
+     */
     public String muunnaVastinjuosteeksi() {
         String vastinjuoste = "";
 
@@ -106,6 +144,11 @@ public class DnaSekvenssi {
         return vastinjuoste;
     }
 
+    /**
+     * Metodi muuttaa DNA-sekvenssin sitä vastaavaksi lähetti-RNA-ketjuksi.
+     * 
+     * @return lähetti-RNA-ketju
+     */
     public String muunnaLahettiRnaksi() {
         String lahettiRna = "";
 
