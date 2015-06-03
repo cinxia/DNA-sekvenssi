@@ -45,3 +45,6 @@ Tiedostonlukijan ja sen testiluokan kirjoittaminen, ohjausolion suunnittelu 2,5 
 
 Ti 2.6.
 JavaDocin kirjoittaminen ja uusi pit-raportti 1,5 h
+
+Ke 3.6.
+Graafisen käyttöliittymän aloittaminen 1 h
