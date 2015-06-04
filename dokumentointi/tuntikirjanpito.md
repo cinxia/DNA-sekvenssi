@@ -48,3 +48,6 @@ JavaDocin kirjoittaminen ja uusi pit-raportti 1,5 h
 
 Ke 3.6.
 Graafisen käyttöliittymän aloittaminen 1 h
+
+To 4.6.
+Graafisen käyttöliittymän kirjoittaminen 1 h
