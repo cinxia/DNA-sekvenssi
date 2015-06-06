@@ -51,3 +51,9 @@ Graafisen käyttöliittymän aloittaminen 1 h
 
 To 4.6.
 Graafisen käyttöliittymän kirjoittaminen 1 h
+
+Pe 5.6.
+Tiedonhakua käyttöliittymää varten 1 h
+
+La 6.6.
+Käyttöliittymän sijoittelumanagerin kirjoittaminen 1,5 h
