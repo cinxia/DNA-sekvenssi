@@ -4,6 +4,7 @@ package DNAsekvenssianalyysi.kayttoliittyma;
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
+import java.io.*;
 
 /**
  *Luokka sisältää graafisen käyttöliittymän.
@@ -15,10 +16,13 @@ public class Gui extends JFrame implements ActionListener{
     private JRadioButton tekstivalinta, tiedostovalinta;
     private JTextField tekstisyotekentta, tiedostosyotekentta, raporttitiedostokentta;
     private JLabel syoteteksti, raporttiteksti, analyysiteksti;
+    private JCheckBox gcOsuus, pyrPurSuhde, vastinjuoste, lahettiRna, aminohappoketju;
+    private JFileChooser tiedostoselain;
     
     public Gui(){     
         JPanel paneeli = (JPanel)this.getContentPane();   
-       // paneeli.setLayout(new FlowLayout());
+        
+        //layout
         GroupLayout layout = new GroupLayout(paneeli);
         paneeli.setLayout(layout);
         layout.setAutoCreateGaps(true);
@@ -26,7 +30,7 @@ public class Gui extends JFrame implements ActionListener{
         
         //ikkunan asetukset
         this.setTitle("DNA-sekvenssin analysointityökalu");
-        this.setSize(700, 600);
+        this.setSize(500, 400);
         this.setResizable(true);
         this.setLocation(100, 0);
         this.setVisible(true);
@@ -40,15 +44,27 @@ public class Gui extends JFrame implements ActionListener{
         syotevalitsin.add(tekstivalinta);
         syotevalitsin.add(tiedostovalinta);
         
-        tekstisyotekentta = new JTextField("DNA-sekvenssi", 20);
-        tiedostosyotekentta = new JTextField("Luettava tiedosto", 20);
+        tekstisyotekentta = new JTextField("Syötä DNA-sekvenssi tähän", 20);
+        tiedostosyotekentta = new JTextField("", 20);
         lukunappi = new JButton("Selaa");
+        lukunappi.addActionListener(this);
+        
+        tiedostoselain = new JFileChooser();
         
         raporttiteksti = new JLabel("Valise tiedosto, johon raportti kirjoitetaan.");
-        raporttitiedostokentta = new JTextField("Tallennettava tiedosto");
+        raporttitiedostokentta = new JTextField("");
         kirjoitusnappi = new JButton("Selaa");
+        kirjoitusnappi.addActionListener(this);
         
         analyysiteksti = new JLabel("Valitse suoritettavat analyysit.");
+        
+        gcOsuus = new JCheckBox("GC-osuus");
+        pyrPurSuhde = new JCheckBox("Pyrimidiini-puriinisuhde");
+        vastinjuoste = new JCheckBox("Vastinjuosteen sekvenssi");
+        lahettiRna = new JCheckBox("Lähetti-RNA:n sekvenssi");
+        aminohappoketju = new JCheckBox("Lähetti-RNA:ta vastaava aminohappoketju");
+        
+        
         analyysinappi = new JButton("Suorita analyysi");
         analyysinappi.addActionListener(this);
         
@@ -64,7 +80,11 @@ public class Gui extends JFrame implements ActionListener{
                     .addComponent(raporttiteksti)
                     .addComponent(raporttitiedostokentta)
                     .addComponent(analyysiteksti) 
-                    // lisää checkboxit tähän
+                    .addComponent(gcOsuus)
+                    .addComponent(pyrPurSuhde)
+                    .addComponent(vastinjuoste)
+                    .addComponent(lahettiRna)
+                    .addComponent(aminohappoketju)
                     .addComponent(analyysinappi))
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                     .addComponent(lukunappi)
@@ -87,7 +107,11 @@ public class Gui extends JFrame implements ActionListener{
                     .addComponent(raporttitiedostokentta)
                     .addComponent(kirjoitusnappi))
                 .addComponent(analyysiteksti)
-                // checkboxit tähän
+                .addComponent(gcOsuus)
+                .addComponent(pyrPurSuhde)
+                .addComponent(vastinjuoste)
+                .addComponent(lahettiRna)
+                .addComponent(aminohappoketju)
                 .addComponent(analyysinappi)
         );
         
@@ -96,16 +120,26 @@ public class Gui extends JFrame implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e){
-        try{
-            if (e.getSource()==analyysinappi){
-            }
-        }
-        catch(Exception ex){
-                
+            if (e.getSource()==lukunappi){
+                int paluuarvo = tiedostoselain.showOpenDialog(null);
+                if (paluuarvo == JFileChooser.APPROVE_OPTION){
+                    File avattavaTiedosto = tiedostoselain.getSelectedFile();
+                    tiedostosyotekentta.setText(avattavaTiedosto.getPath());  
                 }
-        }
+                    
+            }
+            if (e.getSource()==kirjoitusnappi){
+                int paluuarvo = tiedostoselain.showSaveDialog(null);
+                if (paluuarvo == JFileChooser.APPROVE_OPTION){
+                    File tallennettavaTiedosto = tiedostoselain.getSelectedFile();
+                    raporttitiedostokentta.setText(tallennettavaTiedosto.getPath());
+                }
+            }
+            
+
     
-    
+            }
+            
     public static void main(String[] args) {
                 Gui kayttoliittyma = new Gui();
             }
