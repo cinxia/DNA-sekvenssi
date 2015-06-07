@@ -7,7 +7,7 @@ public class Ohjausolio {
 
     private DnaSekvenssi dna;
     private Tiedostokirjoitin kirjoitin;
-    private boolean tiedostonLukuOk;
+    private boolean tiedostonLukuOk = true;
     private boolean tiedostonLuontiOk;
 
     /**
