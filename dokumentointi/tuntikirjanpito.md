@@ -60,3 +60,6 @@ Käyttöliittymän sijoittelumanagerin kirjoittaminen 1,5 h ja FileChooserin lisääm
 
 Su 7.6.
 Käyttöliittymän toimintojen kirjoittamista 2 h
+
+Ma 8.6.
+Tiedonhakua 1 h, luokkien muokkaamista ja virheiden korjaamista 4 h
