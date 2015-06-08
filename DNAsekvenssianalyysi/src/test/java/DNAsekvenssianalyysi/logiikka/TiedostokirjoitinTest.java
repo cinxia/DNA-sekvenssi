@@ -3,6 +3,7 @@ package DNAsekvenssianalyysi.logiikka;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import java.io.*;
 
 public class TiedostokirjoitinTest {
 
@@ -13,7 +14,8 @@ public class TiedostokirjoitinTest {
 
     @Before
     public void setUp() {
-        testikirjoitin = new Tiedostokirjoitin("F:\\testiraportti.txt");
+        File raporttitiedosto = new File("F:\\testiraportti.txt");
+        testikirjoitin = new Tiedostokirjoitin(raporttitiedosto);
     }
 
     @Test
@@ -85,7 +87,7 @@ public class TiedostokirjoitinTest {
     
     @Test
     public void kokoOperaatiotoimii(){
-        Tiedostokirjoitin kakkoskirjoitin = new Tiedostokirjoitin("F:\\testiraporttitoinen.txt");
+        Tiedostokirjoitin kakkoskirjoitin = new Tiedostokirjoitin(new File("F:\\testiraporttitoinen.txt"));
         kakkoskirjoitin.kirjoitaSyoteSekvenssi("ATCGG");
         kakkoskirjoitin.kirjoitaSekvenssinPituus(5);
         kakkoskirjoitin.kirjoitaEmasFrekvenssit(1, 1, 1, 2);

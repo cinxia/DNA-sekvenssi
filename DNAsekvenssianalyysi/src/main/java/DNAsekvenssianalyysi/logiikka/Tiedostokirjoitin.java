@@ -15,16 +15,16 @@ public class Tiedostokirjoitin {
     /**
      * Konstruktori käynnistää kirjoittimen parametriksi saatuun tiedostoon.
      * 
-     * @param tiedostopolku 
+     * @param tiedosto 
      */
-    public Tiedostokirjoitin(String tiedostopolku) {
-        luonninOnnistuminen = luoKirjoitin(tiedostopolku);
+    public Tiedostokirjoitin(File tiedosto) {
+        luonninOnnistuminen = luoKirjoitin(tiedosto);
 
     }
 
-    private boolean luoKirjoitin(String tiedostopolku) {
+    private boolean luoKirjoitin(File tiedosto) {
         try {
-            File raportti = new File(tiedostopolku);
+            File raportti = tiedosto;
             FileWriter fw = new FileWriter(raportti, true);
             BufferedWriter bw = new BufferedWriter(fw);
             this.kirjoitin = new PrintWriter(bw);

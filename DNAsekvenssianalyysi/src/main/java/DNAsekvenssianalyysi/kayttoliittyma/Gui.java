@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
 import java.io.*;
-import DNAsekvenssianalyysi.logiikka.Ohjausolio;
+import DNAsekvenssianalyysi.logiikka.*;
 
 /**
  * Luokka sisältää graafisen käyttöliittymän.
@@ -18,6 +18,7 @@ public class Gui extends JFrame implements ActionListener {
     private JLabel syoteteksti, raporttiteksti, analyysiteksti;
     private JCheckBox gcOsuus, pyrPurSuhde, vastinjuoste, lahettiRna, aminohappoketju;
     private JFileChooser tiedostoselain;
+    private File avattavaTiedosto, tallennettavaTiedosto;
 
     public Gui() {
         JPanel paneeli = (JPanel) this.getContentPane();
@@ -36,14 +37,13 @@ public class Gui extends JFrame implements ActionListener {
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        //komponentit sekvenssin lukemiseen
         syoteteksti = new JLabel("Valitse mistä DNA-sekvenssi luetaan.");
-
         syotevalitsin = new ButtonGroup();
         tekstivalinta = new JRadioButton("Lue tekstikentästä", false);
         tiedostovalinta = new JRadioButton("Lue tiedostosta", false);
         syotevalitsin.add(tekstivalinta);
         syotevalitsin.add(tiedostovalinta);
-
         tekstisyotekentta = new JTextField("Syötä DNA-sekvenssi tähän", 20);
         tiedostosyotekentta = new JTextField("", 20);
         lukunappi = new JButton("Selaa");
@@ -51,19 +51,19 @@ public class Gui extends JFrame implements ActionListener {
 
         tiedostoselain = new JFileChooser();
 
+        //komponentit raportin kirjoittamiseen
         raporttiteksti = new JLabel("Valise tiedosto, johon raportti kirjoitetaan.");
         raporttitiedostokentta = new JTextField("");
         kirjoitusnappi = new JButton("Selaa");
         kirjoitusnappi.addActionListener(this);
 
+        //komponentit analyyseihin
         analyysiteksti = new JLabel("Valitse suoritettavat analyysit.");
-
-        gcOsuus = new JCheckBox("GC-osuus");
-        pyrPurSuhde = new JCheckBox("Pyrimidiini-puriinisuhde");
-        vastinjuoste = new JCheckBox("Vastinjuosteen sekvenssi");
-        lahettiRna = new JCheckBox("Lähetti-RNA:n sekvenssi");
-        aminohappoketju = new JCheckBox("Lähetti-RNA:ta vastaava aminohappoketju");
-
+        gcOsuus = new JCheckBox("GC-osuus", true);
+        pyrPurSuhde = new JCheckBox("Pyrimidiini-puriinisuhde", true);
+        vastinjuoste = new JCheckBox("Vastinjuosteen sekvenssi", true);
+        lahettiRna = new JCheckBox("Lähetti-RNA:n sekvenssi", true);
+        aminohappoketju = new JCheckBox("Lähetti-RNA:ta vastaava aminohappoketju", true);
         analyysinappi = new JButton("Suorita analyysi");
         analyysinappi.addActionListener(this);
 
@@ -120,7 +120,7 @@ public class Gui extends JFrame implements ActionListener {
         if (e.getSource() == lukunappi) {
             int paluuarvo = tiedostoselain.showOpenDialog(null);
             if (paluuarvo == JFileChooser.APPROVE_OPTION) {
-                File avattavaTiedosto = tiedostoselain.getSelectedFile();
+                avattavaTiedosto = tiedostoselain.getSelectedFile();
                 tiedostosyotekentta.setText(avattavaTiedosto.getPath());
             }
 
@@ -128,7 +128,7 @@ public class Gui extends JFrame implements ActionListener {
         if (e.getSource() == kirjoitusnappi) {
             int paluuarvo = tiedostoselain.showSaveDialog(null);
             if (paluuarvo == JFileChooser.APPROVE_OPTION) {
-                File tallennettavaTiedosto = tiedostoselain.getSelectedFile();
+                tallennettavaTiedosto = tiedostoselain.getSelectedFile();
                 raporttitiedostokentta.setText(tallennettavaTiedosto.getPath());
             }
         }
@@ -141,8 +141,9 @@ public class Gui extends JFrame implements ActionListener {
                     if (raporttitiedostokentta.getText().isEmpty()) {
                         JOptionPane.showMessageDialog(null, "Kirjoitettavaa tiedostoa ei ole valittu.");
                     } else {
+                        File tallennustiedostoKentasta = new File(raporttitiedostokentta.getText());
                         Ohjausolio kenttaohjaaja = new Ohjausolio(tekstisyotekentta.getText(),
-                                "", raporttitiedostokentta.getText());
+                                null, tallennustiedostoKentasta);
                         teeRaportti(kenttaohjaaja);
                     }
                 }
@@ -154,9 +155,15 @@ public class Gui extends JFrame implements ActionListener {
                         if (raporttitiedostokentta.getText().isEmpty()) {
                             JOptionPane.showMessageDialog(null, "Kirjoitettavaa tiedostoa ei ole valittu.");
                         } else {
-                            Ohjausolio tiedostoohjaaja = new Ohjausolio("", tiedostosyotekentta.getText(),
-                                    raporttitiedostokentta.getText());
-                            teeRaportti(tiedostoohjaaja);
+                            File tiedostoLuettava = new File(tiedostosyotekentta.getText());
+                            if (tiedostoLuettava.exists()) {
+                                File tallennustiedostoKentasta = new File(raporttitiedostokentta.getText());
+                                Ohjausolio tiedostoohjaaja = new Ohjausolio("", tiedostoLuettava,
+                                        tallennustiedostoKentasta);
+                                teeRaportti(tiedostoohjaaja);
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Luettavaa tiedostoa ei ole.");
+                            }
                         }
                     }
                 } else {
@@ -173,23 +180,39 @@ public class Gui extends JFrame implements ActionListener {
         if (!ohjaaja.dnaSekvenssiKunnossa()) {
             JOptionPane.showMessageDialog(null, "DNA-sekvenssissä ongelmia");
             raportinOnnistuminen = false;
+        } else {
+            if (!ohjaaja.getTiedostonLukuOk()) {
+                JOptionPane.showMessageDialog(null, "Tiedoston lukemisessa ongelmia");
+                raportinOnnistuminen = false;
+            } else {
+                if (!ohjaaja.getTiedostonLuontiOk()) {
+                    JOptionPane.showMessageDialog(null, "Kirjoitettavan tiedoston luomisessa ongelmia");
+                    raportinOnnistuminen = false;
+                }
+            }
         }
-        if (!ohjaaja.getTiedostonLukuOk()) {
-            JOptionPane.showMessageDialog(null, "Tiedoston lukemisessa ongelmia");
-            raportinOnnistuminen = false;
-        }
-        if (!ohjaaja.getTiedostonLuontiOk()) {
-            JOptionPane.showMessageDialog(null, "Kirjoitettavan tiedoston luomisessa ongelmia");
-            raportinOnnistuminen = false;
-        }
-        if (raportinOnnistuminen = true) {
+        if (raportinOnnistuminen) {
             raportinOnnistuminen = ohjaaja.lisaaSyoteSekvenssi();
             raportinOnnistuminen = ohjaaja.lisaaSekvenssinPituus();
             raportinOnnistuminen = ohjaaja.lisaaEmasFrekvenssit();
-            //tähän valinnaiset analyysit
+            if (gcOsuus.isSelected()) {
+                raportinOnnistuminen = ohjaaja.lisaaGCOsuus();
+            }
+            if (pyrPurSuhde.isSelected()) {
+                raportinOnnistuminen = ohjaaja.lisaaPyrimidiiniPuriiniSuhde();
+            }
+            if (vastinjuoste.isSelected()) {
+                raportinOnnistuminen = ohjaaja.lisaaVastinjuoste();
+            }
+            if (lahettiRna.isSelected()) {
+                raportinOnnistuminen = ohjaaja.lisaaLahettiRna();
+            }
+            if (aminohappoketju.isSelected()) {
+                raportinOnnistuminen = ohjaaja.lisaaAminohappoketju();
+            }
             raportinOnnistuminen = ohjaaja.suljeKirjoitin();
         }
-        if (raportinOnnistuminen = true) {
+        if (raportinOnnistuminen) {
             JOptionPane.showMessageDialog(null, "Raportti tehty onnistuneesti.");
         } else {
             JOptionPane.showMessageDialog(null, "Raportin tekemisessä ongelmia");

@@ -3,6 +3,7 @@ package DNAsekvenssianalyysi.logiikka;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import java.io.*;
 
 public class OhjausolioTest {
 
@@ -18,12 +19,16 @@ public class OhjausolioTest {
 
     @Before
     public void setUp() {
-        ohjaajaSyote = new Ohjausolio("AAATTCCGGG", "", "F:\\testiraportti.txt");
-        ohjaajaVirheellinenSyote = new Ohjausolio("eiOleDNA", "", "F:\\testiraportti.txt");
-        ohjaajaTyhjaSyote = new Ohjausolio("", "", "F:\\testiraportti.txt");
-        ohjaajaTiedosto = new Ohjausolio("", "F:\\testisekvenssi.txt", "F:\\testiraportti.txt");
-        ohjaajaVaaraTiedosto = new Ohjausolio("", "F:\\tiedostoaEiOle.txt", "F:\\testiraportti.txt");
-        ohjaajaTyhjaTiedosto = new Ohjausolio("", "F:\\tiedostotyhja.txt", "F:\\testiraportti.txt");
+        File raportti = new File("F:\\testiraportti.txt");
+        File lukutiedosto = new File("F:\\testisekvenssi.txt");
+        File olematonTiedosto = new File("F:\\tiedostoaEIole.txt");
+        File tyhjaTiedosto = new File("F:\\tiedostotyhja.txt");
+        ohjaajaSyote = new Ohjausolio("AAATTCCGGG", null, raportti);
+        ohjaajaVirheellinenSyote = new Ohjausolio("eiOleDNA", null, raportti);
+        ohjaajaTyhjaSyote = new Ohjausolio("", null, raportti);
+        ohjaajaTiedosto = new Ohjausolio("", lukutiedosto, raportti);
+        ohjaajaVaaraTiedosto = new Ohjausolio("", olematonTiedosto, raportti);
+        ohjaajaTyhjaTiedosto = new Ohjausolio("", tyhjaTiedosto, raportti);
     }
 
     @Test

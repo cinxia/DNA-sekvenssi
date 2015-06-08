@@ -17,9 +17,9 @@ public class Tiedostonlukija {
      * 
      * @param tiedosto 
      */
-    public Tiedostonlukija(String tiedosto) {
+    public Tiedostonlukija(File tiedosto) {
         try {
-            this.lukija = new Scanner(new File(tiedosto));
+            this.lukija = new Scanner(tiedosto);
             this.sekvenssi = lueTiedosto();
         } catch (Exception e) {
             this.tiedostoOk = false;

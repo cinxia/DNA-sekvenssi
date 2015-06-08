@@ -3,6 +3,7 @@ package DNAsekvenssianalyysi.logiikka;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import java.io.*;
 
 public class TiedostonlukijaTest {
 
@@ -13,7 +14,7 @@ public class TiedostonlukijaTest {
 
     @Before
     public void setUp() {
-        testilukija = new Tiedostonlukija("F:\\testisekvenssi.txt");
+        testilukija = new Tiedostonlukija(new File("F:\\testisekvenssi.txt"));
     }
 
     @Test
@@ -23,7 +24,7 @@ public class TiedostonlukijaTest {
 
     @Test
     public void kokoOperaatioToimii() {
-        Tiedostonlukija toinenTestilukija = new Tiedostonlukija("F:\\testisekvenssi.txt");
+        Tiedostonlukija toinenTestilukija = new Tiedostonlukija(new File("F:\\testisekvenssi.txt"));
         System.out.println(toinenTestilukija.getSekvenssi());
     }
 

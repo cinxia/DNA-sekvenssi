@@ -3,6 +3,9 @@ package DNAsekvenssianalyysi.logiikka;
 /**
  * Luokka ohjaa tiedoston lukemista ja kirjoittamista sekä DNA-sekvenssin analysointia.
  */
+
+import java.io.*;
+
 public class Ohjausolio {
 
     private DnaSekvenssi dna;
@@ -17,9 +20,9 @@ public class Ohjausolio {
      * @param luettavaTiedosto
      * @param kirjoitettavaTiedosto 
      */
-    public Ohjausolio(String syote, String luettavaTiedosto, String kirjoitettavaTiedosto) {
+    public Ohjausolio(String syote, File luettavaTiedosto, File kirjoitettavaTiedosto) {
 
-        if (syote == "") {
+        if (syote.isEmpty()) {
             this.dna = new DnaSekvenssi(lueSekvenssiTiedostosta(luettavaTiedosto));
         } else {
             this.dna = new DnaSekvenssi(syote);
@@ -29,7 +32,7 @@ public class Ohjausolio {
         this.tiedostonLuontiOk = kirjoitin.getLuonninOnnistuminen();
     }
 
-    private String lueSekvenssiTiedostosta(String tiedosto) {
+    private String lueSekvenssiTiedostosta(File tiedosto) {
         Tiedostonlukija lukija = new Tiedostonlukija(tiedosto);
         if (!lukija.getTiedostoOk()) {
             this.tiedostonLukuOk = false;
@@ -45,7 +48,7 @@ public class Ohjausolio {
      * @return onko tallennettu
      */
     public boolean dnaSekvenssiKunnossa() {
-        if (this.dna.getDnaSekvenssi() == "") {
+        if (this.dna.getDnaSekvenssi().isEmpty()) {
             return false;
         } else {
             return true;
