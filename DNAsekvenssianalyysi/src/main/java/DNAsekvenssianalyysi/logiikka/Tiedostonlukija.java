@@ -4,7 +4,8 @@ import java.util.Scanner;
 import java.io.*;
 
 /**
- * Luokka lukee DNA-sekvenssin tiedostosta ja tallentaa tiedon lukemisen onnistumisesta.
+ * Luokka lukee DNA-sekvenssin tiedostosta ja tallentaa tiedon lukemisen
+ * onnistumisesta.
  */
 public class Tiedostonlukija {
 
@@ -14,8 +15,8 @@ public class Tiedostonlukija {
 
     /**
      * Konstruktori alustaa tiedostonlukijan ja lukee tiedoston sisällön.
-     * 
-     * @param tiedosto 
+     *
+     * @param tiedosto
      */
     public Tiedostonlukija(File tiedosto) {
         try {
@@ -36,8 +37,8 @@ public class Tiedostonlukija {
             return luettuSekvenssi;
         } catch (Exception e) {
             this.tiedostoOk = false;
+            return "";
         }
-        return "";
     }
 
     public String getSekvenssi() {
