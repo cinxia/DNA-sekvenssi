@@ -63,3 +63,6 @@ Käyttöliittymän toimintojen kirjoittamista 2 h
 
 Ma 8.6.
 Tiedonhakua 1 h, luokkien muokkaamista ja virheiden korjaamista 4 h
+
+Ti 9.6.
+Tiedonhakua käyttöliittymää varten, kaavioiden piirtäminen, dokumentaation päivittäminen, koodin muokkaaminen 3,5 h
