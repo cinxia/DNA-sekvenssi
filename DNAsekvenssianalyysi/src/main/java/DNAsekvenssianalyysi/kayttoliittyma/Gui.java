@@ -1,6 +1,7 @@
 package DNAsekvenssianalyysi.kayttoliittyma;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.event.*;
 import java.awt.*;
 import java.io.*;
@@ -49,7 +50,11 @@ public class Gui extends JFrame implements ActionListener {
         lukunappi = new JButton("Selaa");
         lukunappi.addActionListener(this);
 
+        //komponentit tiedostojen selaamiseen
         tiedostoselain = new JFileChooser();
+        tiedostoselain.setAcceptAllFileFilterUsed(true);
+        FileNameExtensionFilter filtteri = new FileNameExtensionFilter("Tekstitiedosto (.txt)", "txt");
+        tiedostoselain.addChoosableFileFilter(filtteri);
 
         //komponentit raportin kirjoittamiseen
         raporttiteksti = new JLabel("Valise tiedosto, johon raportti kirjoitetaan.");
@@ -175,7 +180,7 @@ public class Gui extends JFrame implements ActionListener {
 
     }
 
-    public void teeRaportti(Ohjausolio ohjaaja) {
+    private void teeRaportti(Ohjausolio ohjaaja) {
         boolean raportinOnnistuminen = true;
         if (!ohjaaja.dnaSekvenssiKunnossa()) {
             JOptionPane.showMessageDialog(null, "DNA-sekvenssissä ongelmia");
