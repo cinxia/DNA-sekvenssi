@@ -6,12 +6,12 @@ Ohjelmalla voidaan analysoida DNA-sekvenssi‰ ja tallentaa analyysin tulokset tek
 Valitse syˆtet‰‰nkˆ DNA-sekvenssi suoraan sille varattuun tekstikentt‰‰n ("Lue tekstikent‰st‰") vai luetaanko se tekstitiedostosta ("Lue tiedostosta").
 Vain toinen vaihtoehdoista voi olla kerrallaan valittuna. Jos valintaa ei tehd‰, ohjelma ilmoittaa siit‰ eik‰ suorita analyysej‰.
 DNA-sekvenssi voidaan kirjoittaa suoraan sille varattuun tekstikentt‰‰n, jossa lukee "Syˆt‰ DNA-sekvenssi t‰h‰n".
-Luettava tekstitiedosto tiedostopolun voi kirjoittaa sille varattuun tekstikentt‰‰n tai jos tiedoston haluaa valita tietokoneelta,
+Luettavan tekstitiedosto tiedostopolun voi kirjoittaa sille varattuun tekstikentt‰‰n tai jos tiedoston haluaa valita tietokoneelta,
 voi painaa kent‰n vieress‰ olevaa "Selaa"-nappia, jolloin ilmestyy ikkuna tiedostojen selaamiseen. 
 Ohjelma hyv‰ksyy vain tekstitiedostot, joiden tiedostop‰‰te on ".txt".
 
 Valitse tekstitiedosto (".txt"-p‰‰te), johon analyysin tulokset tallennetaan. 
-Tiedostopolku voidaan kirjoittaa suoraan tekstikentt‰‰n tai se voidaan valita tietokoneelta painamalla "Selaa"-nappia ja valitsemalla haluttu tiedosto.
+Tiedostopolku voidaan kirjoittaa suoraan tekstikentt‰‰n tai tiedosto voidaan valita tietokoneelta painamalla "Selaa"-nappia ja valitsemalla haluttu tiedosto.
 Raportin tallennukseen k‰ytett‰v‰ tiedosto voi olla jo olemassa oleva tiedosto tai sit‰ varten voidaan luoda uusi tiedosto.
 Jos valitaan jo olemassa oleva tekstitiedosto, niin tulosraportti kirjoitetaan tiedoston loppuun.
 
@@ -29,7 +29,7 @@ Vastinjuoste tarkoittaa DNA-sekvenssin vastinjuostetta.
 L‰hetti-RNA on DNA-sekvenssi‰ suoraan vastaava RNA-sekvenssi eik‰ ota huomioon proteiinisynteesin aikana tapahtuvaa eukaryooteille ominaista intronien poistamista.
 Siten myˆs ohjelman tuottama aminohappoketju on DNA-sekvenssin mukainen eik‰ huomioi l‰hetti-RNA:ssa tapahtuvia muutoksia.
 
-Lopuksi paina Suorita nalyysi -nappia. 
+Lopuksi paina "Suorita analyysi"-nappia. 
 Ohjelma ilmoittaa onko raportti suoritettu onnistuneesti vai onko DNA:n lukemisessa tai raportin kirjoittamisessa ollut ongelmia.
 Jos DNA:n lukemisessa on ollut ongelmia ohjelma tuottaa tyhj‰n raporttitiedoston.
 
