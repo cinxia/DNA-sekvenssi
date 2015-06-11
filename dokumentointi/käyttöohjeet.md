@@ -28,6 +28,10 @@ Pyrimidiini-puriinisuhde tarkoittaa pyrimidiiniem‰sten lukum‰‰r‰n suhdetta purim
 Vastinjuoste tarkoittaa DNA-sekvenssin vastinjuostetta. 
 L‰hetti-RNA on DNA-sekvenssi‰ suoraan vastaava RNA-sekvenssi eik‰ ota huomioon proteiinisynteesin aikana tapahtuvaa eukaryooteille ominaista intronien poistamista.
 Siten myˆs ohjelman tuottama aminohappoketju on DNA-sekvenssin mukainen eik‰ huomioi l‰hetti-RNA:ssa tapahtuvia muutoksia.
+Koska aminohapot koostuvat kolmen em‰ksen kodoneista, l‰hetti-RNA:sta tarkistetaan sen kolmella jaollisuus.
+Jos se ei ole kolmella jaollinen, ylim‰‰r‰iset em‰kset j‰tet‰‰n pois aminohappketjuksi muutettavasta sekvenssist‰. 
+L‰hetti-RNA-sekvenssi sis‰lt‰‰ kuitenkin kaikki em‰kset.
+Aminohapot on merkitty niiden yksikirjaimisilla tunnuksilla.
 
 Lopuksi paina "Suorita analyysi"-nappia. 
 Ohjelma ilmoittaa onko raportti suoritettu onnistuneesti vai onko DNA:n lukemisessa tai raportin kirjoittamisessa ollut ongelmia.
