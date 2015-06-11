@@ -53,7 +53,7 @@ public class Gui extends JFrame implements ActionListener {
         //komponentit tiedostojen selaamiseen
         tiedostoselain = new JFileChooser();
         tiedostoselain.setAcceptAllFileFilterUsed(true);
-        FileNameExtensionFilter filtteri = new FileNameExtensionFilter("Tekstitiedosto (.txt)", "txt");
+        FileNameExtensionFilter filtteri = new FileNameExtensionFilter("Tekstitiedosto (*.txt)", "txt");
         tiedostoselain.addChoosableFileFilter(filtteri);
 
         //komponentit raportin kirjoittamiseen
