@@ -146,10 +146,14 @@ public class Gui extends JFrame implements ActionListener {
                     if (raporttitiedostokentta.getText().isEmpty()) {
                         JOptionPane.showMessageDialog(null, "Kirjoitettavaa tiedostoa ei ole valittu.");
                     } else {
-                        File tallennustiedostoKentasta = new File(raporttitiedostokentta.getText());
-                        Ohjausolio kenttaohjaaja = new Ohjausolio(tekstisyotekentta.getText(),
-                                null, tallennustiedostoKentasta);
-                        teeRaportti(kenttaohjaaja);
+                        if (!raporttitiedostokentta.getText().toLowerCase().endsWith(".txt")) {
+                            JOptionPane.showMessageDialog(null, "Tallennettavan tiedoston pääte ei ole .txt-muotoa.");
+                        } else {
+                            File tallennustiedostoKentasta = new File(raporttitiedostokentta.getText());
+                            Ohjausolio kenttaohjaaja = new Ohjausolio(tekstisyotekentta.getText(),
+                                    null, tallennustiedostoKentasta);
+                            teeRaportti(kenttaohjaaja);
+                        }
                     }
                 }
             } else {
@@ -161,13 +165,17 @@ public class Gui extends JFrame implements ActionListener {
                             JOptionPane.showMessageDialog(null, "Kirjoitettavaa tiedostoa ei ole valittu.");
                         } else {
                             File tiedostoLuettava = new File(tiedostosyotekentta.getText());
-                            if (tiedostoLuettava.exists()) {
-                                File tallennustiedostoKentasta = new File(raporttitiedostokentta.getText());
-                                Ohjausolio tiedostoohjaaja = new Ohjausolio("", tiedostoLuettava,
-                                        tallennustiedostoKentasta);
-                                teeRaportti(tiedostoohjaaja);
+                            if (tiedostoLuettava.exists() && tiedostoLuettava.getPath().toLowerCase().endsWith(".txt")) {
+                                if (!raporttitiedostokentta.getText().toLowerCase().endsWith(".txt")) {
+                                    JOptionPane.showMessageDialog(null, "Kirjoitettavan tiedoston pääte ei ole .txt-muotoa.");
+                                } else {
+                                    File tallennustiedostoKentasta = new File(raporttitiedostokentta.getText());
+                                    Ohjausolio tiedostoohjaaja = new Ohjausolio("", tiedostoLuettava,
+                                            tallennustiedostoKentasta);
+                                    teeRaportti(tiedostoohjaaja);
+                                }
                             } else {
-                                JOptionPane.showMessageDialog(null, "Luettavaa tiedostoa ei ole.");
+                                JOptionPane.showMessageDialog(null, "Luettava tiedosto ei kelpaa.");
                             }
                         }
                     }
