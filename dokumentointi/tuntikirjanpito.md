@@ -71,4 +71,4 @@ Ke 10.6.
 Tiedonhakua ja suunnittelua käyttöliittymää varten 2 h
 
 To 11.6.
-Käyttöliittymän viilaaminen 1 h
+Käyttöliittymän viilaaminen 1 h, käyttöohjeen kirjoittaminen 1 h
