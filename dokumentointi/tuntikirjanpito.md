@@ -66,3 +66,9 @@ Tiedonhakua 1 h, luokkien muokkaamista ja virheiden korjaamista 4 h
 
 Ti 9.6.
 Tiedonhakua käyttöliittymää varten, kaavioiden piirtäminen, dokumentaation päivittäminen, koodin muokkaaminen 3,5 h
+
+Ke 10.6.
+Tiedonhakua ja suunnittelua käyttöliittymää varten 2 h
+
+To 11.6.
+Käyttöliittymän viilaaminen 1 h
