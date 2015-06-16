@@ -30,7 +30,7 @@ Vastinjuoste tarkoittaa DNA-sekvenssin vastinjuosteen sekvenssi‰.
 L‰hetti-RNA on DNA-sekvenssi‰ suoraan vastaava RNA-sekvenssi, eik‰ ohjelma ota huomioon proteiinisynteesin aikana tapahtuvaa eukaryooteille ominaista intronien poistamista.
 Siten myˆs ohjelman tuottama aminohappoketju on DNA-sekvenssin mukainen eik‰ huomioi l‰hetti-RNA:ssa tapahtuvia muutoksia.
 Koska aminohapot vastaavat kolmen em‰ksen kodoneita, l‰hetti-RNA:sta tarkistetaan sen kolmella jaollisuus.
-Jos se ei ole kolmella jaollinen, ylim‰‰r‰iset em‰kset j‰tet‰‰n pois aminohappketjuksi muutettavasta sekvenssist‰. 
+Jos se ei ole kolmella jaollinen, ylim‰‰r‰iset em‰kset j‰tet‰‰n pois aminohappoketjuksi muutettavasta sekvenssist‰. 
 L‰hetti-RNA-sekvenssi sis‰lt‰‰ kuitenkin kaikki em‰kset.
 Aminohapot on merkitty aminohappoketjuun niiden yksikirjaimisilla tunnuksilla.
 Huomioi, ett‰ kolmea lopetuskodonia ei vastaa yksik‰‰n aminohappo.
