@@ -75,3 +75,6 @@ Käyttöliittymän viilaaminen 1 h, käyttöohjeen kirjoittaminen 1 h
 
 La 13.6.
 JavaDocin ja toimivan jar-tiedoston generointi 1,5 h; koodikatselmointi 1 h
+
+Ti 16.6.
+Aiheen kuvauksen ja käyttöohjeen täydentäminen 1 h
