@@ -1,5 +1,8 @@
 ﻿Aihe: DNA-sekvenssin analysointityökalu
 
+Ohjelman käyttäjän ei tarvitse tuntea DNA:n tutkimista kovin syvällisesti, 
+mutta käyttäjän oletetaan tuntevan DNA:n rakenteen ja proteiinisynteesin perusteet.
+
 Toteutettavalla ohjelmalla voidaan analysoida käyttäjän syöttämää DNA-sekvenssiä. 
 DNA-sekvenssi voidaan syöttää suoraan ohjelmaan tai se voidaan lukea käyttäjän valitsemasta tekstitiedostosta. 
 Ohjelma ilmoittaa mahdollisista virhetilanteista.
